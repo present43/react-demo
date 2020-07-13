@@ -14,18 +14,25 @@
 
 
 
+    // 其内不能定义 变量
    class Animal {
+       // 构造器
        constructor() {
        }
 
        static info = "静态参数"
 
-       // 实例方法
+       // 实例方法 和java差不多
        eat(){
 
        }
-   }
 
+       // 静态方法 挂载到Class上的，通过类可以调
+       static
+       say() {
+
+       }
+   }
 
 
     ReactDOM.render(
