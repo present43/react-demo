@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <!-- 这个用来创建虚拟dom 同时组件的生命周期也在这个包中   -->
+    <script src="../build/react.development.js"></script>
+    <!-- 用来操作虚拟DOM，最主要的运用场景   React.render() 将元素渲染到DOM上 -->
+    <script src="../build/react-dom.development.js"></script>
+    <!-- 启用JSX 语法 然后就可以在 js 里写html -->
+    <script src="../build/babel.min.js"></script>
+</head>
+<body>
+<!--使用React 第一步需要导包 ，这里导入的是js 文件-->
+<div id="123" ></div>
+<script type="text/babel">
+
+    // 创建虚拟元素
+    //参数一： 创建的元素类型，字符串，表示元素的名称
+    //参数二： 是一个对象或null，表示当前这个DOM的属性
+    //参数三： 子节点（包括 其它 虚拟DOM 获取文本子节点）
+    //参数n : 其他子节点
+    const myh1 = React.createElement('h1',{id :'myh1' , title: 'this is a h1'} , '这是一个大大的H1');
+    // 将myh1 元素嵌套放入 mydiv 当中 。 需要明白各个参数的含义
+    const mydiv = React.createElement('div',null , '这是一个div元素',myh1);
+
+    // 渲染页面上的DOM结构 ，最好的方式就是写Html 代码。但是正常的js代码里写不来，但是！React 的JSX 语法可以完成
+    const  mytest =<div>aaa</div>;
+
+    //渲染数字
+    const a = 10;
+
+    //渲染字符串
+    let str = '渲染字符串';
+
+    //布尔值 可以设置三元表达式
+    let boo = false;
+
+    //为属性绑定值
+    let title = "000";
+
+    //渲染jsx 元素   在React里一切都是以js 来表示的
+    const h1 = <h1>用const定义为虚拟元素</h1>;
+
+    //渲染jsx 元素数组
+    const arr = [
+            // 看成对象
+            <h1>元素1</h1>,
+            <h2>元素2</h2>,
+            <h3>元素3</h3>
+    ];
+
+    //将普通字符数组转为jsx数组并渲染到页面上 方法一 手动for循环套标签
+    const arrstr = [
+       '元素1','元素2','元素3'
+    ];
+
+
+    // 数组的map方法 遍历数组的每一项 根据这一项生成新的数组返回 js这里的map的意思是映射.map里必须要写return
+    // arrstr.map(item => <h5>{item}</h5>)
+
+    //参数一： 要渲染的DOM 元素 这个元素可以就是元素
+    //参数二： 指定页面上的一个容器，应该是一个DOM元素，而不是选择器
+    // 在JSX 中如果想要在 标签中放变量的话，需要加上 {} 占位符表示这个位置用a代替
+    // 小结，当我们需要在JSX 控制区域你，写js表达式了，则需要把JS代码写到{} 当中
+
+    //在jsx 中的元素添加class类名 需要使用className 来代替name
+    ReactDOM.render(
+        <div>
+            {a+2}
+            <hr/>
+            {str}
+            <hr/>
+            {boo ? '条件为真' : '条件为假'}
+            <hr/>
+            <p title={title}>这是P标签</p>
+            {/* h1 jsx的注释  */ }
+            <hr/>
+            {arr}
+            <hr/>
+            {    arrstr.map(item => <h3>{item}</h3>)  }
+        </div>,
+        document.getElementById("123")
+    );
+</script>
+
+</body>
+</html>

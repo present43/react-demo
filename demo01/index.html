@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+  </head>
+  <body>
+   <div id="example">
+   <!--元素是构成 React 应用的最小单位，它用于描述屏幕上输出的内容。React 当中的元素事实上是普通的对象-->
+   <!--要将React元素渲染到根DOM节点中，我们通过把它们都传递给 ReactDOM.render() 的方法来将其渲染到页面上： -->
+   <!--React 元素都是不可变的。当元素被创建之后，你是无法改变其内容或属性的。
+      目前更新界面的唯一办法是创建一个新的元素，然后将它传入 ReactDOM.render() 方法： -->
+   <script type="text/babel">
+     ReactDOM.render(
+             <h1>测试 </h1>,
+            document.getElementById("example")
+     );
+   </script>
+   </div>
+  </body>
+</html>
