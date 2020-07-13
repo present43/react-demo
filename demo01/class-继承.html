@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+</head>
+<body>
+<div id="容器"></div>
+
+<script type="text/babel">
+
+    // 父类       把共有的东西挂载到父类对象上
+    class Human{
+        constructor(name , age) {
+            this.name = name
+            this.age = age
+        }
+    }
+
+    // 子类
+    class American extends Human{
+
+    }
+
+    // 子类
+    class Chinese extends  Human{
+
+    }
+
+
+
+    const p1 = new American("tomcat" , 12)
+    console.log(p1)
+
+    const p2 = new Chinese("测试" ,13)
+    console.log(p2)
+
+    ReactDOM.render(
+        <div>12</div>,
+        document.getElementById("容器")
+    )
+</script>
+
+</body>
+</html>
