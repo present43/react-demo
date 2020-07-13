@@ -12,7 +12,7 @@
 
 </body>
 <script type="text/babel">
- // 第一种创建组件的方式 构造函数简单的方法
+ // 第一种创建组件的方式 构造函数简单的方法 为无状态组件，只负责展示数据，并不涉及状态state
  // 组件当中接收外界传入的数据props 形参
  // 我们想要在组件之间进行传值，那么props属性就起到了这个作用,在React中props和state是两个非常非常非常重要的属性一定要掌握这两个
  // 无论是vue 还是React 组件中的props 永远都是只读的 ，不能重新赋值
@@ -22,9 +22,26 @@
         return  <div>这是 Hello 组件---{props.name}---{props.age}</div>
     }
 
+    // 第二种方法  以ES6的形式来创建react的组件  更加常用
+    // 只要有可能，尽量使用无状态组件创建形式。
+    // 否则（如需要state、生命周期方法等），使用`React.Component`这种es6形式创建组件
+    // ES6中class关键字 ，是面向对象编程的新形势  创建一个动物类
+    class Animal{
+        // 构造器  每次New 的时候都会执行构造器里的代码
+        constructor(name ,age ) {
+            // 赋值给a1
+            this.name = name
+            this.age = age
+        }
+    }
+
+    const a1 = new Animal("参数1" , 2)
+    // [静态属性] ：通过 构造函数，直接访问到的属性，叫做静态属性；
+
+
     //形参 可以直接传
     const dog = {
-        name : "大灰",
+        name : "dev分支",
         age : 2
     }
 
