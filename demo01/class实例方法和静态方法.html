@@ -12,14 +12,15 @@
 
 <script type="text/babel">
 
+    // 其内只能 写 构造器、静态方法、静态属性、实例方法
+    // class 关键字 内部还是用构造函数，所以说我们把class 关键字称作语法糖。
 
-
-    // 其内不能定义 变量
    class Animal {
        // 构造器
        constructor() {
        }
 
+       // 静态属性
        static info = "静态参数"
 
        // 实例方法 和java差不多
